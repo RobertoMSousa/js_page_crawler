@@ -1,0 +1,28 @@
+{
+  "name": "js_page_crawler",
+  "version": "1.0.0",
+  "description": "JS crawler that gets all the links from website",
+  "main": "crawler.js",
+  "scripts": {
+    "start": "npm run serve",
+    "build": " npm run build-ts",
+    "clean": "rm -r dist node_modules",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "serve": "npm run build && node dist/crawler.js",
+    "watch-node": "nodemon dist/server.js",
+    "develop": "npm run build && npm run watch-debug",
+    "serve-debug": "nodemon --inspect dist/crawler.js",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
+  },
+  "author": "Roberto Sousa",
+  "license": "ISC",
+  "dependencies": {
+    "got": "^8.3.1"
+  },
+  "devDependencies": {
+    "@types/got": "^8.3.1",
+    "concurrently": "^3.5.1",
+    "typescript": "^2.9.1"
+  }
+}
